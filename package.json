@@ -1,0 +1,23 @@
+{
+  "name": "rickbot3000",
+  "version": "1.0.0",
+  "description": "A rick bot for discord",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js#11.5-dev",
+    "dotenv": "8.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LunaMelodi/rickbot3000.git"
+  },
+  "author": "Luna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LunaMelodi/rickbot3000/issues"
+  },
+  "homepage": "https://github.com/LunaMelodi/rickbot3000#readme"
+}
