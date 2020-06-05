@@ -2,7 +2,7 @@ const util = require('../util.js');
 
 module.exports = {
 	name: 'quote',
-	description: 'Gets a quote from the real slickrick',
+	description: 'Gets A Quote From The Real Slickrick',
 	aliases: ['q', 'qu'],
 	args: false,
   usage: '<optional thing to search for in quote list>',
@@ -25,6 +25,8 @@ module.exports = {
     var personalizedQuote = util.personalize(randomQuote, requester);
 
     var rickifiedQuote = util.rickify(personalizedQuote);
+
+    message.delete();
 
 		return message.channel.send(rickifiedQuote)
 	},
@@ -244,7 +246,7 @@ const quotes = [
   'Truth is, life is strange.',
   'I barely find anything impressive.',
   'Being emo left a scar in me.',
-  'Omg... placeholder! :redface: Stop it....',
+  'Omg... placeholder! <:red:545371189741223956> Stop it....',
   'I know some pays well but it\'s not my preference.',
   'I don\'t like dirty jobs. Yuck, ew.',
   'Yeah, I\'m still deliberating on that decision.',
@@ -289,8 +291,8 @@ const quotes = [
   'Marvelous. It\'s great to reconnect with the TIC community, as I missed it.',
   'I ceased the habit of capitalizing the first of every word once I started to be less active on xat, which is the only online location in where I type in this manner.',
   'I am a Christian and will remain forever.',
-  'Well Ragna, that is quite difficult to answer, considering we didn\'t have numerous conversation but I do recall having religious discussions.',
-  'I remember back in the days when I used to say "I\'m the real Criz" while confronting someone whose placeholder was/is Criz merely for the sake of joking.',
+  'Well placeholder, that is quite difficult to answer, considering we didn\'t have numerous conversation but I do recall having religious discussions.',
+  'I remember back in the days when I used to say "I\'m the real Criz" while confronting someone whose name was/is Criz merely for the sake of joking.',
   'Thank you placeholder, I appreciate your kindness unlike the way you were in the past.',
   'This is Rick.',
   'wheres that placeholder dude',

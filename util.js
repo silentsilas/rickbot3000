@@ -35,6 +35,9 @@ module.exports = {
     quoteArray = quote.split(' ');
     for (var i = 0; i < quoteArray.length; i++){
   
+      if(quoteArray[i] === 'placeholder!'){
+        quoteArray[i] = requester + '!';
+      }
       if(quoteArray[i] === 'placeholder \'s' || quoteArray[i] === 'placeholder \'s'){
         quoteArray[i] = requester + '\'s';
       }

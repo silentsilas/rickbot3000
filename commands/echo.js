@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'echo',
-	description: 'Put words in rick\'s mouth',
+	description: 'Put Words In Rick\'s Mouth',
 	aliases: ['e', 'eko'],
 	args: false,
   usage: '<message you want rick to repeat>',

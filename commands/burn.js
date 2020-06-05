@@ -2,7 +2,7 @@ const util = require('../util.js');
 
 module.exports = {
 	name: 'burn',
-	description: 'Gets a burn from the real slickrick',
+	description: 'Gets A Personal Burn From The Real Slickrick',
 	aliases: ['b', 'insult', 'smash'],
 	args: false,
   usage: '<optional thing to search for in quote list>',
@@ -12,13 +12,15 @@ module.exports = {
     else {
       var requester = message.guild.members.get(message.author.id).displayName;
     }
-      console.log(requester);
+    console.log(requester);
 
     var randomQuote = burns[util.getRandomInt(0, burns.length)];
 
     var personalizedQuote = util.personalize(randomQuote, requester);
 
     var rickifiedQuote = util.rickify(personalizedQuote);
+
+    message.delete();
 
 		return message.channel.send(rickifiedQuote)
 	},

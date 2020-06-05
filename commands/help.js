@@ -2,7 +2,7 @@ const { prefix } = require('../config.json');
 
 module.exports = {
 	name: 'help',
-	description: 'List all of my commands or info about a specific command.',
+	description: 'List All Of My Commands Or Info About A Specific Command.',
 	aliases: ['commands', 'halp', 'h'],
 	usage: '[command name]',
 	cooldown: 5,
@@ -11,9 +11,9 @@ module.exports = {
         const { commands } = message.client;
 
         if (!args.length) {
-            data.push('Here\'s a list of all my commands:');
+            data.push('Here\'s A List Of All My Commands:');
             data.push(commands.map(command => command.name).join(', '));
-            data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
+            data.push(`\nYou Can Send \`${prefix}help [command name]\` To Get Info On A Specific Command!`);
 
             return message.channel.send(data, { split: true })
         }
@@ -21,7 +21,7 @@ module.exports = {
         const command = commands.get(name) || commands.find(cmd => cmd.aliases && cmd.aliases.includes(name));
 
         if (!command) {
-	        return message.reply('that\'s not a valid command!');
+	        return message.reply('That\'s Not A Valid Command!');
         }
 
         data.push(`**Name:** ${command.name}`);
