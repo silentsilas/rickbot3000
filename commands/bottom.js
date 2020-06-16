@@ -3,7 +3,7 @@ const fs = require('fs');
 
 module.exports = {
 	name: 'bottom',
-	description: 'Display a user\'s top 50 least frequently used emojis.',
+	description: 'Display a user\'s top 30 least frequently used emojis.',
 	aliases: ['bo', 'bot'],
 	args: false,
   usage: '@user',
@@ -33,7 +33,7 @@ function sortEmojis(requestee, emojiData) {
     return a[1] - b[1];
   });
 
-  return sortable.slice(0, 50).join(' | ');
+  return sortable.slice(0, 30).join(' | ');
 
 }
 
