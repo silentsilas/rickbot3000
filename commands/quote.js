@@ -7,7 +7,7 @@ module.exports = {
 	args: false,
   usage: '<optional thing to search for in quote list>',
 	execute(client, message, args) {
-    var requester = message.guild.members.get(message.author.id).displayName;
+    var requester = message.guild.members.cache.get(message.author.id).displayName;
     
     if (args) {
       filteredQuotes = []

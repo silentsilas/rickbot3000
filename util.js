@@ -56,7 +56,20 @@ module.exports = {
     return personalizedQuote;
   },
 
-  getUserFromMention(mention, client) {
+  /* getRequestee(client, message, args) {
+    if (typeof client.users.fetch(mention) !== undefined)
+  } */
+
+  getRequestee(client, message, args) {
+    let requestee = "server";
+    
+    if(module.exports.getUserFromMention(client, message, args[0]))
+        requestee = module.exports.getUserFromMention(client, message, args[0]).id;
+
+    return requestee;
+  },
+  
+  getUserFromMention(client, message, mention) {
     if (!mention) 
       return;
   
@@ -66,12 +79,39 @@ module.exports = {
       if (mention.startsWith('!')) {
         mention = mention.slice(1);
       }
-  
-      return client.users.get(mention);
+      //return message.mentions.users.first()
+      console.log(client.users.cache.get(mention))
+      return client.users.cache.get(mention);
     }
   },
 
   matchBear(message) {
     return message;
-  }
+  },
+
+  sortEmojis(requestee, emojiData, isTop, numEmojis) {
+    let sortable = [];
+  
+    for (let emoji in emojiData[requestee]) {
+      sortable.push([emoji, emojiData[requestee][emoji]]);
+    }
+  
+    sortable.sort(function(a, b) {
+      if(isTop) return b[1] - a[1];
+      else return a[1] - b[1];
+    });
+  
+    return sortable.slice(0, numEmojis);
+  },
+  
+  // emojiList = array of arrays [[emojiName, count], [emojiName2, count2]]
+  prettifyEmojis(emojiList) {
+    let prettifiedEmojis = `${emojiList[0][0]} : ${emojiList[0][1]}`;
+
+    for(let i=1; i<emojiList.length; i++) {
+      prettifiedEmojis = prettifiedEmojis.concat(' | ', `${emojiList[i][0]} : ${emojiList[i][1]}`)
+    }
+
+    return prettifiedEmojis;
+  },
 };
