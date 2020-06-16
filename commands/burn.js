@@ -1,4 +1,4 @@
-const util = require('../util.js');
+const util  = require('../util.js');
 
 module.exports = {
 	name: 'burn',
@@ -8,11 +8,10 @@ module.exports = {
   usage: '<optional thing to search for in quote list>',
 	execute(client, message, args) {
     if (args[0])
-      var requester = util.getUserFromMention(args[0], client);
+      var requester = util.getUserFromMention(client, message, args[0]).username;
     else {
       var requester = message.guild.members.get(message.author.id).displayName;
     }
-    console.log(requester);
 
     var randomQuote = burns[util.getRandomInt(0, burns.length)];
 
